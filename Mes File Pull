@@ -1,0 +1,97 @@
+Rem Attribute VBA_ModuleType=VBAModule
+Option VBASupport 1
+Sub Content_adj()
+'
+' Content_adj Macro
+' MES content movement
+'
+' Keyboard Shortcut: Ctrl+g
+'
+    Range("A1:D15").Select
+    Selection.Cut
+    Range("A3").Select
+    ActiveSheet.Paste
+    Columns("C:C").EntireColumn.AutoFit
+
+    Dim HCno As String
+
+    HCno = InputBox("Insert Hc Number", Number, 2148)
+
+    Range("A1") = HCno
+
+    Dim LI  As String
+
+    LI = InputBox("Insert Line Item", Number, 10)
+
+    Range("B1") = LI
+
+    Dim Mtype As String
+
+    Mtype = InputBox("Insert Machine Type", Number, 9843)
+
+    Range("C1") = Mtype
+
+    Range("D1") = InputBox("AE1 or 2", Model, "AE2")
+
+    Range("E1") = 0
+        
+    Range("F1") = Now()
+    
+    Range("F1").NumberFormat = "mm/dd/yyyy"
+    
+    Dim Coats As String
+    
+    Coats = InputBox("Insert Coats", Number, 2148)
+    
+    Range("G1") = Coats
+    
+    Range("G1").NumberFormat = "general"
+    
+    Range("H1") = InputBox("Insert Ship Date", Date, Now())
+    Range("H1").NumberFormat = "mm/dd/yyyy"
+    Dim Missing As String
+    Missing = InputBox("Are any fields Missing?", "Y/N", "N")
+    
+    If Missing = "Y" Then
+    
+    Dim MatNo As String
+    MatNo = InputBox("Insert Material", Mat#, "00")
+    
+    Range("A3") = MatNo
+    
+    Range("b3") = InputBox("Insert Quantity", Number, 1)
+    
+    Dim More As String
+    
+    More = InputBox("Is there more than 1 item?", "Y/N", "N")
+    
+    If More = "Y" Then
+    
+    Dim MatNo2 As String
+    
+    MatNo2 = InputBox("Insert Material", Mat#, "00")
+    
+    Range("A4") = MatNo2
+    
+    Range("b4") = InputBox("Insert Quantity", Number, 1)
+    
+    Dim More2 As String
+    
+    More2 = InputBox("Is there more ?", "Y/N", "N")
+    
+    If More2 = "Y" Then
+    
+    Dim MatNo3 As String
+    MatNo3 = InputBox("Insert Material", Mat#, "00")
+    
+    Range("A5") = MatNo3
+    
+    Range("b5") = InputBox("Insert Quantity", Number, 1)
+    
+    Else: End If
+    
+    Else: End If
+         
+    Else: End If
+       
+End Sub
